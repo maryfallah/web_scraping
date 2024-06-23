@@ -1,0 +1,32 @@
+I'm learing beatifulSoup.
+it's a package for pulling the data out of xml and html files.
+we use bs4.
+by default it uses html parser included in python, but we can other parsers too.
+But how to parse a document? pass it to the constructor. You can pass in a string or an open filehandle.
+
+(
+    create a BeautifulSoup object: from a file:
+        with open("index.html") as fp:
+            soup = BeautifulSoup(fp)
+)
+(
+    create a BeautifulSoup object: from a string:
+        soup = BeautifulSoup("<html>data</html>")
+)
+
+Beautiful Soup transforms a complex HTML document into a complex tree of Python objects.
+ But you’ll only ever have to deal with about four kinds of objects: Tag, NavigableString, BeautifulSoup,
+  and Comment.
+<------------------------------------Attention----------------------------------------------------------->
+
+*****always remember to conver NavigableString to a normal pyhton string for memory usage*****
+
+If you want to use a NavigableString outside of Beautiful Soup, you should call unicode() on it to turn it
+ into a normal Python Unicode string. If you don’t, your string will carry around a reference to the entire
+  Beautiful Soup parse tree, even when you’re done using Beautiful Soup. This is a big waste of memory.
+
+  # Convert to a normal string
+   text_content = str(nav_string)  
+
+<------------------------------------Attention----------------------------------------------------------->
+
